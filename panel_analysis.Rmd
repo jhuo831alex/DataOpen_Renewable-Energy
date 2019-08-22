@@ -1,0 +1,78 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(plm)
+library(gplots)
+require(stargazer)
+```
+
+```{r}
+# load the panel data
+df = read.csv('panel_data_ulti.csv')
+```
+
+
+
+```{r}
+plotmeans(ASTHMA_RATE ~ State, main="Heterogeineity across states", data=df, n.label = FALSE)
+```
+
+
+```{r}
+plotmeans(ASTHMA_RATE ~ Year, main="Heterogeineity across years", data=df, n.label = FALSE)
+```
+
+
+
+```{r}
+fixed <- plm(ASTHMA_RATE ~TOT_CONSUMP_PER_AREA+RENEW_PLANT_RATIO+RENW_CONSUMP_PER_AREA+AREA,
+             index = c("State", "Year"),
+             data = df, method = 'within')
+```
+
+
+
+```{r}
+random <- plm(ASTHMA_RATE ~ RENW_CONSUMP_PER_AREA+AREA + TOT_CONSUMP_PER_AREA,
+             index = c("State", "Year"),
+             data = df, method = 'random')
+```
+
+
+```{r}
+phtest(fixed, random)
+```
+
+```{r}
+bptest(ASTHMA_RATE ~ RENW_CONSUMP_PER_AREA+AREA + factor(State), data = df, studentize=F)
+```
+
+```{r}
+fixed <- plm(MAX_AQI ~TOT_CONSUMP_PER_AREA+RENEW_PLANT_RATIO+RENW_CONSUMP_PER_AREA+AREA + LONG0 + LONG1 + LONG2 + LONG3 + LONG4 + LAT0 +LAT1+LAT2 +LAT3,
+             index = c("State", "Year"),
+             data = df, method = 'within')
+```
+
+```{r}
+stargazer(fixed,
+          headers = FALSE, 
+          title = 'Table of Fixed Effect of Renewable Energy towards Air Quality')
+```
+
+
+```{r}
+fixed <- plm( ASTHMA_RATE~ K+ WSO2 + NSO4+ TNH4,
+             index = c("State", "Year"),
+             data = df, method = 'within')
+```
+
+```{r}
+stargazer(fixed,
+          headers = FALSE, 
+          title = 'Table of Fixed Effect of Renewable Energy towards Air Quality')
+```
+
