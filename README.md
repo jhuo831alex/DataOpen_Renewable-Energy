@@ -1,7 +1,7 @@
 # About the Project
 The main goal of this project was to explore the relationship between the consumption of non-renewable energy and prevalence of respiratory diseases, especially asthma. The ultimate aim was to prove the causality: The more non-renewable energy consumed, the higher prevelance of asthma.
 
-# Methodolgy
+# Methodology
 * The following relationships were carefully examined: 
   * causality between renewable energy source consumption and air quality
   * causality between air quality and asthma rates
