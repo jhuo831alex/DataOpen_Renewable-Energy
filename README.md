@@ -15,5 +15,5 @@ The main goal of this project was to explore the relationship between the consum
 For more information, check out the research paper <em><a href="Research_Paper.pdf">here</a></em>
 
 # About The Data Open
-The Data Open is a datathon competition taking place throughout the year at a series of top universities. At each event, participants work in teams to work through a large and complex dataset and then present their findings to a panel of judges. <br />
-For more information: check out the official website <em><a href="https://www.citadel.com/careers/the-data-open/">here</a></em>
+The Data Open is a datathon competition taking place throughout the year at a series of top universities. At each event, participants work in teams to work through a large and complex dataset and then present their findings to a panel of judges. <br /> <br />
+For more information, check out the official website <em><a href="https://www.citadel.com/careers/the-data-open/">here</a></em>
